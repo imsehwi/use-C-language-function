@@ -1,5 +1,5 @@
 #pragma once
-
+#include <string.h>
 //functions
 int ShowMenu(); //1. �����ڰ� �� �� �ִ� �޴� �����ֱ� menu
 void HelpOption(); //2. ���ɾ� ���� �˷��ֱ� help
@@ -84,22 +84,22 @@ int ShowMenu()
 			if (input_txt == 1) { Writetxt(); return 1; }
 			else if (input_txt == 2) { Readtxt(); return 1; }
 			else { printf("WRONG answer"); return 0; }
-	}
 
-	case 5:
-		UserInput();
-		return 1;
+		case 5:
+			UserInput();
+			return 1;
+	}
 
 }
 //2. ���ɾ� ���� �˷��ֱ� help
 void HelpOption()
 {
 	printf("===========OPTIONS===========\n");
-	printf("mv: MoveFiles=\n");
-	printf("cp: CopyFiles=\n");
-	printf("rm: RemoveFiles=\n");
-	printf("chg: ChangeFileName=\n");
-	printf("mkdir: MakeDirectory=\n");
+	printf("mv: MoveFiles\n");
+	printf("cp: CopyFiles\n");
+	printf("rm: RemoveFiles\n");
+	printf("chg: ChangeFileName\n");
+	printf("mkdir: MakeDirectory\n");
 	printf("==============================\n");
 
 }
@@ -125,7 +125,22 @@ void ShowFiles()
 //4. �߰����� ������ �Բ� table�� �����ֱ�
 void ShowbyTable()
 {
+	DIR *dir;
+	struct dirent *ent;
 
+	if ((dir = opendir("./")) != NULL)
+	{
+		while ((ent = readdir(dir)) != NULL)
+		{
+			printf("\n||  %s  ||", ent->d_name);
+			printf("\n============");
+		}
+		closedir(dir);
+	}
+	else
+	{
+		perror("Directory Open Error");
+	}
 }
 //5. Ȯ���ڴ��� �����ϱ�
 void ManageDirbyExtension()
@@ -175,9 +190,48 @@ void Readtxt()
 //14. ������ �Է� �޾ƿ���
 void UserInput()
 {
-	// char[] temp;
-	// scanf("%s", temp);
-	// return temp;
+	getchar();
+	char temp_char[5];
+	gets(temp_char);
+
+	int char_type;
+
+	if(strcmp(temp_char, "mv")==0){
+		char_type=1;
+	}else if(strcmp(temp_char, "cd")==0){
+		char_type=2;
+	}else if(strcmp(temp_char, "rm")==0){
+		char_type=3;
+	}else if(strcmp(temp_char, "chg")==0){
+		char_type=4;
+	}else if(strcmp(temp_char, "mkdir")==0){
+		char_type=5;
+	}else{
+		char_type=6;
+		printf("Wrong type\n");
+	}
+
+	switch(char_type){
+		case 1:
+			printf("1\n");
+			break;
+		case 2:
+			printf("2\n");
+			break;
+		case 3:
+			printf("3\n");
+			break;
+		case 4:
+			printf("4\n");
+			break;
+		case 5:
+			printf("5\n");
+			break;
+		case 6:
+			printf("6\n");
+			break;
+	}
+
 }
 //15. ȭ�鿡 �����ϱ�
 void PrintOutMonitor()

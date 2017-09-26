@@ -25,6 +25,7 @@ by time order. following list is about the functions ;
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <dirent.h>
 #include "sehwi_l.h"
 
