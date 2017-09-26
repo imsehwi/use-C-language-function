@@ -18,37 +18,77 @@ void UserInput(); //14. 사용자 입력 받아오기
 void PrintOutMonitor(); //15. 화면에 출력하기
 
 //variables
-int input_menu;
+int input_menu, input_list, input_mng, input_txt;
 
 //1. 사용자가 할 수 있는 메뉴 보여주기 menu
 void ShowMenu()
 {
-	printf("=============MENU=============");
-	printf("=1=								 ShowMenu=");
-	printf("=2=							   HelpOptions=");
-	printf("=3=					 ManageDirectories=");
-	printf("=4=										Usetxt=");
-	printf("===============================");
-	printf("Choose what you want to use by number: ");
+	printf("=============MENU=============\n");
+	printf("=1=								  ShowFiles=\n");
+	printf("=2=							   HelpOptions=\n");
+	printf("=3=					 ManageDirectories=\n");
+	printf("=4=										Usetxt=\n");
+	printf("===============================\n");
+	printf("Choose what do you want to use(ex. 1, 2 ..) : ");
 	scanf("%d", &input_menu);
 
 	switch (input_menu)
 	{
-	case 1: ShowMenu(); break;
+	case 1:
+		printf("\n===============================");
+		printf("\n======List of Files OPTIONS======");
+		printf("\n=    There are two options that     =");
+		printf("\n=              user can choose            =");
+		printf("\n=1=                                List form =");
+		printf("\n=2=                              Table form =");
+		printf("\n===============================");
+		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
+		scanf("%d", &input_list);
+		if (input_list == 1) { ShowFiles(); break; }
+		else if (input_list == 2) { ShowbyTable(); break; }
+		else { printf("WRONG answer"); break; }
+
 	case 2: HelpOption(); break;
 	case 3: 
+		printf("\n===============================");
+		printf("\n=====Management OPTIONS======");
+		printf("\n=    There are two options that     =");
+		printf("\n=              user can choose            =");
+		printf("\n=1=                           by Extension =");
+		printf("\n=2=                                  by Time =");
+		printf("\n===============================");
+		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
+		scanf("%d", &input_mng);
+			if (input_mng == 1) { ManageDirbyExtension(); break; }
+			else if (input_mng == 2) { ManageDirbyTime(); break; }
+			else { printf("WRONG answer"); break; }
+
+	case 4: 
+		printf("\n===============================");
+		printf("\n=======Text File OPTIONS========");
+		printf("\n=    There are two options that      =");
+		printf("\n=              user can choose             =");
+		printf("\n=1=								 WRITE txt =");
+		printf("\n=2=                                   READ txt =");
+		printf("\n===============================");
+		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
+		scanf("%d", &input_txt);
+			if (input_txt == 1) { Writetxt(); break; }
+			else if (input_txt == 2) { Readtxt(); break; }
+			else { printf("WRONG answer"); break; }
 	}
 
 }
 //2. 명령어 기능 알려주기 help
 void HelpOption()
 {
-	printf("===========OPTIONS===========");
-	printf("=mv=							MoveFiles=");
-	printf("=cp=							    CopyFiles=");
-	printf("=rm=						   RemoveFiles=");
-	printf("=chg=				 ChangeFileName=");
-	printf("=mkdir=				 MakeDirectory=");
+	printf("===========OPTIONS===========\n");
+	printf("=mv=							MoveFiles=\n");
+	printf("=cp=							    CopyFiles=\n");
+	printf("=rm=						   RemoveFiles=\n");
+	printf("=chg=				 ChangeFileName=\n");
+	printf("=mkdir=				 MakeDirectory=\n");
+	printf("==============================\n");
 
 }
 //3. 파일 list 보여주기
@@ -67,7 +107,7 @@ void ShowFiles()
 	}
 	else
 	{
-		perror("");;
+		perror("Directory Open Error");;
 		return 0;
 	}
 }
