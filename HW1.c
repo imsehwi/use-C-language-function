@@ -5,34 +5,34 @@ Handong University
 project name: my COMPUTER manager
 project description: This project does managing the computer files. The functions of project is showing the directories, making a directory and clear the directories
 by time order. following list is about the functions ;
-		
-		1. ¸í·É¾î ¸Þ´º º¸¿©ÁÖ±â menu
-		2. ¸í·É¾î ±â´É ¾Ë·ÁÁÖ±â help
-		3. ÆÄÀÏ list º¸¿©ÁÖ±â
-		4. Ãß°¡ÀûÀÎ Á¤º¸¿Í ÇÔ²² DB·Î º¸¿©ÁÖ±â
-		5. È®ÀåÀÚ´ë·Î Á¤¸®ÇÏ±â
-		6. ½Ã°£ ¼ø¼­´ë·Î Á¤¸®ÇÏ±â
+
+		1. ï¿½ï¿½ï¿½É¾ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ menu
+		2. ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö±ï¿½ help
+		3. ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+		4. ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ DBï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+		5. È®ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+		6. ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 		7. mv
 		8. cp
 		9. rm
-		10. ÀÌ¸§ º¯°æÇÏ±â
-		11. ÆÄÀÏ ¸¸µé±â
-		12. txt ÆÄÀÏ ÀÛ¼ºÇÏ±â(write)
-		13. txt ÆÄÀÏ: °á°ú º¸¿©ÁÖ±â(read)
-		14. »ç¿ëÀÚ ÀÔ·Â ¹Þ¾Æ¿À±â
-		15. È­¸é¿¡ Ãâ·ÂÇÏ±â
+		10. ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+		11. ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		12. txt ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï±ï¿½(write)
+		13. txt ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½(read)
+		14. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+		15. È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 **/
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <Windows.h>
 #include <dirent.h>
 #include "sehwi_l.h"
 
-void main()
+int main()
 {
-	ShowFiles();
+	int flag=1;
 
-	system("PAUSE");
-	return;
+	while(ShowMenu());
+
+	return 0;
 }

@@ -1,33 +1,41 @@
 #pragma once
 
 //functions
-void ShowMenu(); //1. »ç¿ëÀÚ°¡ ÇÒ ¼ö ÀÖ´Â ¸Þ´º º¸¿©ÁÖ±â menu
-void HelpOption(); //2. ¸í·É¾î ±â´É ¾Ë·ÁÁÖ±â help
-void ShowFiles(); //3. ÆÄÀÏ list º¸¿©ÁÖ±â
-void ShowbyTable(); //4. Ãß°¡ÀûÀÎ Á¤º¸¿Í ÇÔ²² table·Î º¸¿©ÁÖ±â
-void ManageDirbyExtension(); //5. È®ÀåÀÚ´ë·Î Á¤¸®ÇÏ±â
-void ManageDirbyTime(); //6. ½Ã°£ ¼ø¼­´ë·Î Á¤¸®ÇÏ±â
+int ShowMenu(); //1. ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ menu
+void HelpOption(); //2. ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö±ï¿½ help
+void ShowFiles(); //3. ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+/////
+void ShowbyTable(); //4. ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ tableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
+void ManageDirbyExtension(); //5. È®ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+void ManageDirbyTime(); //6. ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 void MoveDir(); //7. mv
 void CopyDir(); //8. cp
 void RemoveDir(); //9. rm
-void ChangeFileName(); //10. ÀÌ¸§ º¯°æÇÏ±â
-void MakeDir(); //11. Directory ¸¸µé±â
-void Writetxt(); //12. txt ÆÄÀÏ ÀÛ¼ºÇÏ±â(write)
-void Readtxt(); //13. txt ÆÄÀÏ : °á°ú º¸¿©ÁÖ±â(read)
-void UserInput(); //14. »ç¿ëÀÚ ÀÔ·Â ¹Þ¾Æ¿À±â
-void PrintOutMonitor(); //15. È­¸é¿¡ Ãâ·ÂÇÏ±â
+void ChangeFileName(); //10. ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
+void MakeDir(); //11. Directory ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+void Writetxt(); //12. txt ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï±ï¿½(write)
+void Readtxt(); //13. txt ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½(read)
+
+//My version//
+void UserInput(); //14. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
+//Show user's input using scanf
+
+void PrintOutMonitor(); //15. È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 
 //variables
 int input_menu, input_list, input_mng, input_txt;
 
-//1. »ç¿ëÀÚ°¡ ÇÒ ¼ö ÀÖ´Â ¸Þ´º º¸¿©ÁÖ±â menu
-void ShowMenu()
+//1. ï¿½ï¿½ï¿½ï¿½ï¿½Ú°ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ menu
+int ShowMenu()
 {
+	printf("\n\n*******************WELCOME*****************\n\n");
+
 	printf("=============MENU=============\n");
-	printf("=1=								  ShowFiles=\n");
-	printf("=2=							   HelpOptions=\n");
-	printf("=3=					 ManageDirectories=\n");
-	printf("=4=										Usetxt=\n");
+	printf("1: ShowFiles=\n");
+	printf("2: HelpOptions=\n");
+	printf("3: ManageDirectories=\n");
+	printf("4: Usetxt=\n");
+	printf("5: MANUAL MODE=\n");
 	printf("===============================\n");
 	printf("Choose what do you want to use(ex. 1, 2 ..) : ");
 	scanf("%d", &input_menu);
@@ -35,69 +43,73 @@ void ShowMenu()
 	switch (input_menu)
 	{
 	case 1:
-		printf("\n===============================");
+		//printf("\n===============================");
 		printf("\n======List of Files OPTIONS======");
 		printf("\n=    There are two options that     =");
-		printf("\n=              user can choose            =");
-		printf("\n=1=                                List form =");
-		printf("\n=2=                              Table form =");
+		printf("\n=     user can choose     =");
+		printf("\n1: List form =");
+		printf("\n2: Table form =");
 		printf("\n===============================");
 		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
 		scanf("%d", &input_list);
-		if (input_list == 1) { ShowFiles(); break; }
-		else if (input_list == 2) { ShowbyTable(); break; }
-		else { printf("WRONG answer"); break; }
+		if (input_list == 1) { ShowFiles(); return 1; }
+		else if (input_list == 2) { ShowbyTable(); return 1; }
+		else { printf("WRONG answer"); return 0; }
 
 	case 2: HelpOption(); break;
-	case 3: 
+	case 3:
 		printf("\n===============================");
 		printf("\n=====Management OPTIONS======");
 		printf("\n=    There are two options that     =");
-		printf("\n=              user can choose            =");
-		printf("\n=1=                           by Extension =");
-		printf("\n=2=                                  by Time =");
+		printf("\n=      user can choose         =");
+		printf("\n1: by Extension =");
+		printf("\n2: by Time =");
 		printf("\n===============================");
 		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
 		scanf("%d", &input_mng);
-			if (input_mng == 1) { ManageDirbyExtension(); break; }
-			else if (input_mng == 2) { ManageDirbyTime(); break; }
-			else { printf("WRONG answer"); break; }
+			if (input_mng == 1) { ManageDirbyExtension(); return 1; }
+			else if (input_mng == 2) { ManageDirbyTime(); return 1; }
+			else { printf("WRONG answer"); return 0; }
 
-	case 4: 
+	case 4:
 		printf("\n===============================");
 		printf("\n=======Text File OPTIONS========");
 		printf("\n=    There are two options that      =");
-		printf("\n=              user can choose             =");
-		printf("\n=1=								 WRITE txt =");
-		printf("\n=2=                                   READ txt =");
+		printf("\n=      user can choose     =");
+		printf("\n1: WRITE txt =");
+		printf("\n2: READ txt =");
 		printf("\n===============================");
 		printf("Choose how do you want manage(ex. 1, 2 ..) : ");
 		scanf("%d", &input_txt);
-			if (input_txt == 1) { Writetxt(); break; }
-			else if (input_txt == 2) { Readtxt(); break; }
-			else { printf("WRONG answer"); break; }
+			if (input_txt == 1) { Writetxt(); return 1; }
+			else if (input_txt == 2) { Readtxt(); return 1; }
+			else { printf("WRONG answer"); return 0; }
 	}
 
+	case 5:
+		UserInput();
+		return 1;
+
 }
-//2. ¸í·É¾î ±â´É ¾Ë·ÁÁÖ±â help
+//2. ï¿½ï¿½ï¿½É¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ë·ï¿½ï¿½Ö±ï¿½ help
 void HelpOption()
 {
 	printf("===========OPTIONS===========\n");
-	printf("=mv=							MoveFiles=\n");
-	printf("=cp=							    CopyFiles=\n");
-	printf("=rm=						   RemoveFiles=\n");
-	printf("=chg=				 ChangeFileName=\n");
-	printf("=mkdir=				 MakeDirectory=\n");
+	printf("mv: MoveFiles=\n");
+	printf("cp: CopyFiles=\n");
+	printf("rm: RemoveFiles=\n");
+	printf("chg: ChangeFileName=\n");
+	printf("mkdir: MakeDirectory=\n");
 	printf("==============================\n");
 
 }
-//3. ÆÄÀÏ list º¸¿©ÁÖ±â
+//3. ï¿½ï¿½ï¿½ï¿½ list ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 void ShowFiles()
 {
 	DIR *dir;
 	struct dirent *ent;
 
-	if ((dir = opendir("D:\\2017-2")) != NULL)
+	if ((dir = opendir("./")) != NULL)
 	{
 		while ((ent = readdir(dir)) != NULL)
 		{
@@ -107,21 +119,20 @@ void ShowFiles()
 	}
 	else
 	{
-		perror("Directory Open Error");;
-		return 0;
+		perror("Directory Open Error");
 	}
 }
-//4. Ãß°¡ÀûÀÎ Á¤º¸¿Í ÇÔ²² table·Î º¸¿©ÁÖ±â
+//4. ï¿½ß°ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô²ï¿½ tableï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½
 void ShowbyTable()
 {
 
 }
-//5. È®ÀåÀÚ´ë·Î Á¤¸®ÇÏ±â
+//5. È®ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 void ManageDirbyExtension()
 {
 
 }
-//6. ½Ã°£ ¼ø¼­´ë·Î Á¤¸®ÇÏ±â
+//6. ï¿½Ã°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 void  ManageDirbyTime()
 {
 
@@ -141,32 +152,34 @@ void RemoveDir()
 {
 
 }
-//10. ÀÌ¸§ º¯°æÇÏ±â
+//10. ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 void ChangeFileName()
 {
 
 }
-//11. directory ¸¸µé±â
+//11. directory ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void MakeDir()
 {
 
 }
-//12. txt ÆÄÀÏ ÀÛ¼ºÇÏ±â(write)
+//12. txt ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½ï¿½Ï±ï¿½(write)
 void Writetxt()
 {
 
 }
-//13. txt ÆÄÀÏ : °á°ú º¸¿©ÁÖ±â(read)
+//13. txt ï¿½ï¿½ï¿½ï¿½ : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½(read)
 void Readtxt()
 {
 
 }
-//14. »ç¿ëÀÚ ÀÔ·Â ¹Þ¾Æ¿À±â
+//14. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 void UserInput()
 {
-
+	// char[] temp;
+	// scanf("%s", temp);
+	// return temp;
 }
-//15. È­¸é¿¡ Ãâ·ÂÇÏ±â
+//15. È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½
 void PrintOutMonitor()
 {
 
